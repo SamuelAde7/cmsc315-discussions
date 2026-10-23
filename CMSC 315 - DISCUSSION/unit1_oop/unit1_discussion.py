@@ -9,7 +9,6 @@ You are provided with starter code containing TODO sections. Your task is to com
 analyze the code to demonstrate understanding of inheritance, namespaces, and object copying.
 """
 
-
 from copy import copy, deepcopy
 
 
@@ -25,7 +24,15 @@ from copy import copy, deepcopy
 # Replace the pass statement with your implementation.
 
 class ParentClass:
-    pass
+
+    school = "UMGC"  # class variable
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display_info(self):
+        return f"Name: {self.name}, Age: {self.age}, School: {ParentClass.school}"
 
 
 # TODO 2:
@@ -41,7 +48,21 @@ class ParentClass:
 # Replace the pass statement with your implementation.
 
 class ChildClass(ParentClass):
-    pass
+
+    program = "Data Structures"  # new class variable
+
+    def __init__(self, name, age, major, courses):
+        super().__init__(name, age)
+        self.major = major
+        self.courses = courses
+
+    def study(self):
+        print(f"{self.name} is studying {self.major}.")
+
+    # overriding parent method
+    def display_info(self):
+        return (f"Name: {self.name}, Age: {self.age}, "
+                f"Major: {self.major}, Program: {ChildClass.program}")
 
 
 # TODO 3:
@@ -57,7 +78,27 @@ class ChildClass(ParentClass):
 
 def demonstrate_namespaces():
     print("\n=== Namespace Demonstration ===")
-    print("TODO: Implement namespace demonstration")
+
+    student1 = ChildClass("Alice", 20, "Computer Science", ["CMSC315"])
+    student2 = ChildClass("Bob", 22, "Data Science", ["DATA300"])
+
+    print("Class variable through class:")
+    print(ChildClass.program)
+
+    print("\nClass variable through object:")
+    print(student1.program)
+
+    # add attribute to only one object
+    student1.club = "Coding Club"
+
+    print("\nStudent 1 namespace:")
+    print(student1.__dict__)
+
+    print("\nStudent 2 namespace:")
+    print(student2.__dict__)
+
+    print("\nClass namespace keys:")
+    print(list(ChildClass.__dict__.keys()))
 
 
 # TODO 4:
@@ -73,7 +114,23 @@ def demonstrate_namespaces():
 
 def demonstrate_copying():
     print("\n=== Copy Demonstration ===")
-    print("TODO: Implement shallow copy and deep copy demonstration")
+
+    original = {
+        "name": "Alice",
+        "scores": [90, 95, 100]
+    }
+
+    # Shallow copy shares nested mutable objects
+    shallow_copy = copy(original)
+
+    # Deep copy creates completely independent objects
+    deep_copy = deepcopy(original)
+
+    original["scores"].append(85)
+
+    print("Original:", original)
+    print("Shallow Copy:", shallow_copy)
+    print("Deep Copy:", deep_copy)
 
 
 # TODO 5:
@@ -89,9 +146,15 @@ def demonstrate_copying():
 def main():
     print("=== Unit 1 OOP Assignment ===")
 
-    print("\nTODO: Create and test your parent object")
+    print("\nParent Object:")
+    parent = ParentClass("John", 40)
+    print(parent.display_info())
 
-    print("\nTODO: Create and test your child object")
+    print("\nChild Object:")
+    child = ChildClass("Emma", 21, "Computer Science", ["CMSC315"])
+    print(child.display_info())
+
+    child.study()
 
     demonstrate_namespaces()
     demonstrate_copying()
