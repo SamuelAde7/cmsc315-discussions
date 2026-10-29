@@ -34,3 +34,16 @@ Your reflection should be approximately 150–200 words and address the followin
 1. What concepts or skills did you learn while completing this assignment?
 2. What challenges did you encounter, and how did you overcome them?
 3. Explain the differences between stacks and queues as this relates to real-world applications.
+
+Student Implementation Summary
+Stack Implementation
+Implemented push, pop, peek, and is_empty methods.
+Demonstrated LIFO behavior using multiple items.
+Tested edge cases including popping and peeking from an empty stack.
+Queue Implementation
+Implemented enqueue, dequeue, front, and is_empty methods.
+Demonstrated FIFO behavior using multiple items.
+Tested edge cases including dequeuing and viewing the front of an empty queue.
+Real-World Applications
+Stack: Undo feature in a text editor.
+Queue: Customer service line at a coffee shop.
