@@ -22,7 +22,12 @@ def insert_at(lst, index, value):
     - Use comments to explain how insertion performance may vary depending on
       where the insertion occurs.
     """
-    pass
+
+    # When a value is inserted, existing elements at that position
+    # and beyond shift one position to the right.
+    # Insertions near the beginning require more shifting than
+    # insertions at the end.
+    lst.insert(index, value)
 
 
 def delete_at(lst, index):
@@ -36,7 +41,13 @@ def delete_at(lst, index):
     - Return None if the index is invalid.
     - Add comments explaining why index validation and safe deletion are important.
     """
-    pass
+
+    # Validating the index prevents runtime errors and allows
+    # the program to safely handle invalid user requests.
+    if index < 0 or index >= len(lst):
+        return None
+
+    return lst.pop(index)
 
 
 def search_value(lst, value):
@@ -49,7 +60,14 @@ def search_value(lst, value):
     - Return -1 if the value is not found.
     - Add comments explaining why this is a linear search and why it scans sequentially.
     """
-    pass
+
+    # This is a linear search because each element is examined
+    # sequentially until the value is found or the list ends.
+    for i in range(len(lst)):
+        if lst[i] == value:
+            return i
+
+    return -1
 
 
 def main():
@@ -70,7 +88,19 @@ def main():
     # 5. Use comments to explain each step in the implementation.
 
     print("\n=== INSERTION TESTS ===")
-    print("TODO: Create a list and demonstrate insertions.")
+
+    contacts = ["Alice", "Bob", "Charlie", "David"]
+
+    print("Original list:", contacts)
+
+    insert_at(contacts, 0, "Zoe")
+    print("After inserting at beginning:", contacts)
+
+    insert_at(contacts, len(contacts) // 2, "Emma")
+    print("After inserting in middle:", contacts)
+
+    insert_at(contacts, len(contacts), "Frank")
+    print("After inserting at end:", contacts)
 
     # ===============================
     # TODO (Student): DELETION TESTS
@@ -86,7 +116,18 @@ def main():
     # 4. Use comments to clearly explain what is happening in the output.
 
     print("\n=== DELETION TESTS ===")
-    print("TODO: Demonstrate deletions from multiple positions.")
+
+    removed = delete_at(contacts, 0)
+    print("Removed from beginning:", removed)
+    print("Updated list:", contacts)
+
+    removed = delete_at(contacts, len(contacts) // 2)
+    print("Removed from middle:", removed)
+    print("Updated list:", contacts)
+
+    removed = delete_at(contacts, len(contacts) - 1)
+    print("Removed from end:", removed)
+    print("Updated list:", contacts)
 
     # ===============================
     # TODO (Student): SEARCH TESTS
@@ -99,7 +140,12 @@ def main():
     # 4. Use comments to explain each step.
 
     print("\n=== SEARCH TESTS ===")
-    print("TODO: Demonstrate searching for values.")
+
+    result = search_value(contacts, "Bob")
+    print("Search for 'Bob':", result)
+
+    result = search_value(contacts, "Michael")
+    print("Search for 'Michael':", result)
 
     # ===============================
     # TODO (Student): EDGE CASES
@@ -115,8 +161,27 @@ def main():
     # - Use comments to explain each edge case.
 
     print("\n=== EDGE CASES ===")
-    print("TODO: Demonstrate at least two edge cases.")
 
+    print("Deleting using invalid index:")
+    print(delete_at(contacts, 100))
+
+    empty_list = []
+
+    print("\nInsert into empty list:")
+    insert_at(empty_list, 0, "First Item")
+    print(empty_list)
+
+    print("\nDelete from empty list:")
+    print(delete_at([], 0))
+
+    # Real-world application
+    print("\n=== REAL-WORLD SCENARIO ===")
+    print("This list represents a contact list application.")
+    print("Contacts can be added, removed, and searched as needed.")
+
+    print("\n=== MEMORY DISCUSSION ===")
+    print("As more items are added to the list, more memory is used")
+    print("because each element must be stored in memory.")
 
 
 if __name__ == "__main__":

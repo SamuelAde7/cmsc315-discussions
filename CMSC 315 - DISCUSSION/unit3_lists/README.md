@@ -28,3 +28,19 @@ Your reflection should be approximately 150–200 words and address the followin
 1. What concepts or skills did you learn while completing this assignment?
 2. What challenges did you encounter, and how did you overcome them?
 3. How do list operations impact performance in real-world applications?
+
+Student Implementation Summary
+Insertion Tests
+Inserted values at the beginning, middle, and end of a list.
+Observed how elements shift when new values are inserted.
+Deletion Tests
+Removed values from the beginning, middle, and end.
+Used index validation to prevent invalid deletions.
+Search Tests
+Searched for both existing and missing values.
+Implemented a linear search that scans sequentially through the list.
+Edge Cases
+Tested deletion using an invalid index.
+Tested insertion into an empty list.
+Real-World Scenario
+Demonstrated how a contact list application could use list operations to manage data.
