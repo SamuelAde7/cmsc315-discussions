@@ -24,71 +24,100 @@ def main():
     # TODO (Student): CREATE A HASH TABLE
     # ===============================
     #
-    # Requirements:
-    # 1. Create an empty dictionary.
-    # 2. Add at least 5 key-value pairs.
-    # 3. Add comments explaining how a dictionary
-    #    behaves like a hash table.
-    # 4. Display the contents of the dictionary.
+    # Dictionaries behave like hash tables by storing
+    # key-value pairs. Keys are hashed internally,
+    # allowing fast access to associated values.
 
+    student_scores = {}
+
+    student_scores["Alice"] = 95
+    student_scores["Bob"] = 87
+    student_scores["Charlie"] = 91
+    student_scores["David"] = 84
+    student_scores["Emma"] = 98
 
     print("\n=== INSERT OPERATIONS ===")
-    print("TODO: Create a dictionary and add multiple key-value pairs.")
+    print("Dictionary contents:")
+    print(student_scores)
 
     # ===============================
     # TODO (Student): LOOKUP OPERATIONS
     # ===============================
     #
-    # Requirements:
-    # 1. Retrieve at least two existing keys.
-    # 2. Clearly display the lookup results.
-    # 3. Add meaningful comments to explain how the lookup works.
+    # Dictionary lookup uses a key to quickly locate
+    # a value through hashing.
 
     print("\n=== LOOKUP OPERATIONS ===")
-    print("TODO: Demonstrate successful key lookups.")
+
+    print("Alice's score:", student_scores["Alice"])
+    print("Charlie's score:", student_scores["Charlie"])
 
     # ===============================
     # TODO (Student): UPDATE OPERATIONS
     # ===============================
     #
-    # Requirements:
-    # 1. Update the value associated with an existing key.
-    # 2. Display the dictionary before and after the update.
-    # 3. Use comments to explain what happens when an existing key is assigned
-    #    a new value.
+    # Assigning a new value to an existing key updates
+    # the stored value while keeping the same key.
 
     print("\n=== UPDATE OPERATIONS ===")
-    print("TODO: Demonstrate updating an existing key.")
+
+    print("Before update:")
+    print(student_scores)
+
+    student_scores["Bob"] = 92
+
+    print("After updating Bob's score:")
+    print(student_scores)
 
     # ===============================
     # TODO (Student): DELETE OPERATIONS
     # ===============================
     #
-    # Requirements:
-    # 1. Delete at least one key-value pair.
-    # 2. Display the dictionary before and after deletion.
-    # 3. Use comments to explain what happens when a key is removed.
+    # Removing a key deletes both the key and its value
+    # from the dictionary.
 
     print("\n=== DELETE OPERATIONS ===")
-    print("TODO: Demonstrate deleting a key-value pair.")
+
+    print("Before deletion:")
+    print(student_scores)
+
+    del student_scores["David"]
+
+    print("After deleting David:")
+    print(student_scores)
 
     # ===============================
     # TODO (Student): EDGE CASES
     # ===============================
     #
     # Demonstrate at least two edge cases.
-    #
-    # Example ideas:
-    # - Lookup a missing key
-    # - Delete a missing key safely
-    # - Update a missing key
-    # - Use an empty dictionary
-    #
-    # Explain what happens in each case.
 
     print("\n=== EDGE CASES ===")
-    print("TODO: Demonstrate and explain edge cases.")
 
+    # Edge Case 1: Lookup a missing key
+    print("\nLookup missing key:")
+    print(student_scores.get("Michael", "Key not found"))
+
+    # Edge Case 2: Delete a missing key safely
+    print("\nDelete missing key safely:")
+    removed_value = student_scores.pop("Sarah", "Key not found")
+    print(removed_value)
+
+    # Edge Case 3: Empty dictionary
+    print("\nEmpty dictionary:")
+    empty_dict = {}
+    print(empty_dict)
+
+    # ===============================
+    # REAL-WORLD SCENARIO
+    # ===============================
+
+    print("\n=== REAL-WORLD HASH TABLE EXAMPLE ===")
+    print("A social media platform can store user profiles")
+    print("using usernames as keys and profile information")
+    print("as values. Hash tables allow profiles to be")
+    print("retrieved quickly even when millions of users")
+    print("exist in the system.")
 
 
 if __name__ == "__main__":

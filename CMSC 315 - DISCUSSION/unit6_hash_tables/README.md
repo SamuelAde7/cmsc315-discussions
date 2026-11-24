@@ -30,3 +30,23 @@ Your reflection should be approximately 150–200 words and address the followin
 1. What concepts or skills did you learn while completing this assignment?
 2. What challenges did you encounter, and how did you overcome them?
 3. Explain how hash tables behave, what collisions are, and how hash tables can improve efficiency.
+
+Student Implementation Summary
+Dictionary Creation
+Created an empty dictionary and added five key-value pairs.
+Demonstrated how dictionaries store data similarly to hash tables.
+Lookup Operations
+Retrieved values using existing keys.
+Displayed lookup results for multiple entries.
+Update Operations
+Updated the value associated with an existing key.
+Verified that the key remained unchanged while the value was updated.
+Delete Operations
+Removed a key-value pair from the dictionary.
+Displayed the dictionary before and after deletion.
+Edge Cases
+Looked up a missing key safely using get().
+Removed a missing key safely using pop().
+Demonstrated behavior with an empty dictionary.
+Real-World Scenario
+Used a social media profile system as an example of how hash tables provide fast data retrieval.
